@@ -1,0 +1,57 @@
+
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<title>Verkefni1</title>
+<style type="text/css">
+	img{
+		position: absolute;
+		left: -100px;
+		z-index: 100;
+		width: 300px;
+		height: 300px;
+	}
+	
+	circle {
+    animation: 0.5s linear blinkar;
+    animation-iteration-count: 3;
+}
+	@keyframes blinkar {
+   	 0% {
+   	     visibility: visible;
+   	 }
+  	  50% {
+  	      visibility: hidden;
+  	  }
+  	  100% {
+    	    visibility: hidden;
+   	 }
+	}
+
+</style>
+<svg width="900" height="400" version="1.1">
+
+ <script type="text/javascript">
+  <![CDATA[
+    window.onload = function() {
+     var circle = document.getElementById("myCircle");
+     circle.onclick = function() {
+       var cx = parseInt(this.getAttribute("cx"));
+       cx -= 100;
+       circle.setAttribute("cx",cx);
+     }
+    }
+   ]]>
+
+ </script>
+
+  <circle id="myCircle" cx="700" cy="200" r="100" fill="url(#grad_red)" />
+   
+   <radialGradient id="grad_red" >
+   <stop stop-color="orange" offset="25%"/>
+   <stop stop-color="red" offset="50%"/>
+   <stop stop-color="green" offset="70%"/>
+   <stop stop-color="blue" offset="95%"/>
+ </radialGradient>
+ <img src="goal.png">
+</svg>
