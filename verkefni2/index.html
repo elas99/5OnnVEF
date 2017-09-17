@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VEF VERKEFNI 2</title>
+</head>
+<body>
+<canvas id="canvas" width="1900px" height="200px" style="border: 1px solid black;"></canvas>
+<script>
+
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       || 
+          window.webkitRequestAnimationFrame || 
+          window.mozRequestAnimationFrame    || 
+          window.oRequestAnimationFrame      || 
+          window.msRequestAnimationFrame     || 
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+var x = 0
+function drawIt() {
+    window.requestAnimFrame(drawIt);
+    var c = document.getElementById('canvas');
+    var ctx = c.getContext('2d');
+    ctx.clearRect(0,0,c.width,c.height); 
+    var img = new Image();
+    img.src = "mario.jpg";
+    img.onload = function () {
+      var pattern = ctx.createPattern(img,"repeat");
+      ctx.fillStyle = pattern;
+      
+
+    };
+    ctx.fillRect(x,10,300,300);
+
+    x+=10;
+}
+
+window.requestAnimFrame(drawIt);
+
+</script>
+</body>
+</html>
